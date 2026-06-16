@@ -59,6 +59,33 @@ This setup allows you to run builds, tests,
 and other tasks within the container while keeping your code on the host.
 
 
+## GitLab CI/CD
+
+You can use these Docker images to run your GitLab CI/CD pipelines. Here is an example of how to use it in your `.gitlab-ci.yml` file:
+
+```yaml
+stages:
+  - test
+
+variables:
+  MYSQL_DATABASE: laravel
+  MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+
+test:
+  stage: test
+  image: devanoxpvtltd/laravel:8.5
+  services:
+    - mysql:8.4
+  script:
+    - composer install --no-interaction --prefer-dist --optimize-autoloader
+    - cp .env.example .env
+    - php artisan key:generate
+    - php artisan migrate:fresh --seed
+    - php artisan test
+```
+
+
+
 ## Using HTTPS
 
 The Docker images come with pre-generated SSL certificate files for testing HTTPS locally:
