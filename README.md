@@ -136,7 +136,7 @@ You can optionally set the following environment variables in the container to e
 The release versions on [this GitHub repository](https://github.com/devanoxltd/docker-laravel) don't guarantee
 that Docker images built from the same source code will always be identical.
 
-We build new Docker images daily to ensure they stay up-to-date
+We build new Docker images weekly to ensure they stay up-to-date
 with the latest upstream updates for PHP, base OS, Composer, etc.
 The images in this repo are regularly updated under the same tag names.
 
