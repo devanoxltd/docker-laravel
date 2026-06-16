@@ -166,6 +166,3 @@ This project is licensed under the terms of the [GNU General Public License v3.0
 
 Thank you for recognizing the intellectual effort behind this project. If you plan to use or build upon any of its ideas, I kindly ask that you give appropriate credit to Devanox Private Limited (info@devanox.com).
 
----
-
-From Vietnam 🇻🇳 with love.
