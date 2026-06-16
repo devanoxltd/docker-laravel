@@ -33,10 +33,12 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip sockets \
     && pecl install pcov \
     && docker-php-ext-enable pcov
-# Install Node.js and npm
+# Install Node.js, npm, and Playwright
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
-    && npm install -g npm
+    && npm install -g npm \
+    && npm install -g playwright@latest \
+    && npx playwright install --with-deps
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
