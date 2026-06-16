@@ -30,8 +30,9 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip sockets
-
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip sockets \
+    && pecl install pcov \
+    && docker-php-ext-enable pcov
 # Install Node.js and npm
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
