@@ -12,19 +12,19 @@ Because we build new Docker images to ensure they stay up-to-date with upstream 
 
 You can trigger a fresh build and push of all images across all supported PHP versions in two ways:
 
-### 1. Merging to `main`
+### 1. Automated Weekly Schedule
 
-Any commit pushed or merged directly into the `main` branch will automatically trigger the `.github/workflows/docker-publish.yml` workflow. This will build and push the new images to Docker Hub and GitHub Container Registry (GHCR).
+The `.github/workflows/docker-publish.yml` workflow is scheduled to run automatically every week. This ensures that the Docker images are continuously rebuilt with the latest upstream OS packages, security patches, and PHP minor updates.
 
-### 2. Creating a Release Tag
+### 2. Publishing a GitHub Release
 
-If you have made significant changes to the Dockerfile, entrypoint scripts, or base configuration, you may want to cut a formal GitHub Release for tracking purposes.
+If you have made significant changes to the Dockerfile, entrypoint scripts, or base configuration, you can manually trigger a build by publishing a formal GitHub Release:
 
 1. Go to the **Releases** section on the GitHub repository homepage.
 2. Click **Draft a new release**.
-3. Under "Choose a tag", type a new tag version following semantic versioning, prefixed with `v` (e.g., `v1.0.0` or `v1.0.1`) and select **Create new tag**.
+3. Under "Choose a tag", type a new tag version (e.g., `v1.0.0`) and select **Create new tag**.
 4. Set the Target branch to `main`.
-5. Provide a Release title (usually matching the tag, e.g., `Release v1.0.0`) and describe the changes or improvements made in this release.
+5. Provide a Release title and describe the changes or improvements made in this release.
 6. Click **Publish release**.
 
-Publishing a tag that matches the `v*.*.*` pattern will immediately trigger the GitHub Actions build matrix, pushing fresh images for all supported PHP versions to Docker Hub and GHCR.
+Publishing the release will immediately trigger the GitHub Actions build matrix, pushing fresh images for all supported PHP versions to Docker Hub and GHCR.
