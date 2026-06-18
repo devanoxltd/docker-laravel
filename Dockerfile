@@ -40,12 +40,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
     && npm install -g playwright@latest \
     && npx playwright install --with-deps
 
-# Fix CVE-2026-23949 in jaraco.context
-RUN apt-get update && apt-get install -y python3-pip \
-    && (pip3 install --upgrade "jaraco.context>=6.1.0" --break-system-packages || pip3 install --upgrade "jaraco.context>=6.1.0") \
-    && rm -rf /usr/lib/python3/dist-packages/jaraco_context-*.dist-info \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
