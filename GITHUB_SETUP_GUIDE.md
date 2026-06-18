@@ -7,17 +7,15 @@ This guide explains how to set up this repository to automatically build and pub
 This repository uses a **Build Matrix** in GitHub Actions. Whenever you push to the `main` branch or create a Release Tag (`v*.*.*`), GitHub Actions will spin up multiple parallel jobs to build the Docker image for each supported PHP version.
 
 Currently supported versions:
-- `8.0`
-- `8.1`
 - `8.2`
 - `8.3`
 - `8.4`
 - `8.5` *(Tagged as `latest` as well)*
 
 The resulting images will be tagged automatically. For example, it will produce:
-- `devanoxpvtltd/laravel:8.0` (on Docker Hub)
-- `ghcr.io/devanoxltd/laravel:8.0` (on GitHub Container Registry)
-- `devanoxpvtltd/laravel:8.1`
+- `devanoxpvtltd/laravel:8.2` (on Docker Hub)
+- `ghcr.io/devanoxltd/laravel:8.2` (on GitHub Container Registry)
+- `devanoxpvtltd/laravel:8.3`
 ... and so on.
 
 ## Initial Setup
